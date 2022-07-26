@@ -1,0 +1,15 @@
+body {
+	margin: 0;
+}
+
+#viewport {
+	position: relative;
+}
+
+#title {
+	position: absolute;
+	top: 0;
+	left: 20px;
+	color: white;
+}
+

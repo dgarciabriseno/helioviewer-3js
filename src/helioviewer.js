@@ -2,7 +2,8 @@
  * Returns the full API url for the given endpoint name
  */
 function get_url_for_api(endpoint) {
-	return "https://api.helioviewer.org/v2/" + endpoint + "/";
+//	return "https://api.helioviewer.org/v2/" + endpoint + "/";
+	return "http://localhost:8081/v2/" + endpoint + "/";
 }
 
 /**
@@ -75,5 +76,18 @@ function getJP2ImageUrl(date, sourceId) {
 	return endpoint;
 }
 
-export { getJP2ImageUrl };
+function getDownloadImageUrl(id) {
+    let endpoint = get_url_for_api("downloadImage");
+	// Append query string to url
+	let args = serialize({
+        id: id,
+        scale: 2
+	});
+	if (args) {
+		endpoint += "?" + args;
+	}
+	return endpoint;
+}
+
+export { getJP2ImageUrl, getDownloadImageUrl };
 
